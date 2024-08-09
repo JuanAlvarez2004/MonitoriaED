@@ -54,37 +54,64 @@ public class Taller {
     }
 
     public void buscarNombre(ArrayList<String> listaNombres) {
+        // Crear un objeto Scanner para leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el nombre a buscar en la lista:");
+
+        // Leer el nombre que el usuario quiere buscar
         String nombreBuscado = scanner.nextLine();
+
+        // Recorrer la lista de nombres
         for (String nombres : listaNombres) {
+            // Comparar cada nombre en la lista con el nombre buscado
             if (nombres.equals(nombreBuscado)) {
                 System.out.println("El nombre fue encontrado.");
-                return;
+                return;  // Salir del método si el nombre es encontrado
             }
         }
+
+        // Si el nombre no fue encontrado, informar al usuario
         System.out.println("El nombre no fue encontrado.");
         System.out.println("Desea agregar este nombre a la lista (si/no)");
+
+        // Leer la respuesta del usuario
         String deseo = scanner.nextLine();
+
+        // Si el usuario desea agregar el nombre, agregarlo a la lista
         if (deseo.equals("si")) {
             listaNombres.add(nombreBuscado);
+
+            // Llamar al método leerNombres para mostrar la lista actualizada
             leerNombres(listaNombres);
             System.out.println("Se ha agregado con éxito.");
-        } else return;
+        } else {
+            return;  // Salir del método si el usuario no quiere agregar el nombre
+        }
     }
 
+
     public void eliminarNombre(ArrayList<String> listaNombres) {
+        // Crear un objeto Scanner para leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
         System.out.println("Que nombre desea eliminar:");
+
+        // Leer el nombre que el usuario quiere eliminar
         String nombreEliminar = scanner.nextLine();
+
+        // Recorrer la lista de nombres
         for (String nombres : listaNombres) {
+            // Comparar cada nombre en la lista con el nombre a eliminar
             if (nombreEliminar.equals(nombres)) {
-                listaNombres.remove(nombres);
+                listaNombres.remove(nombres);  // Eliminar el nombre de la lista
+
+                // Llamar al método leerNombres para mostrar la lista actualizada
                 leerNombres(listaNombres);
                 System.out.println("Se ha eliminado con éxito.");
-                return;
+                return;  // Salir del método si el nombre es eliminado
             }
         }
+
+        // Si el nombre no fue encontrado, informar al usuario
         System.out.println("El nombre no existe, por ende no se ha eliminado");
     }
 }
