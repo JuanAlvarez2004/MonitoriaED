@@ -51,7 +51,7 @@ public class Pila {
         return top;
     }
 
-    public void leerPila() {
+    /*public void leerPila() {
         Nodo nodoActual = top;
         System.out.println("TOP -> ");
         while (nodoActual != null) {
@@ -60,6 +60,7 @@ public class Pila {
         }
         System.out.print("-> BOTTOM");
     }
+     */
 
     public void verificarEcuacion(Pila pila) {
         Scanner sc = new Scanner(System.in);
